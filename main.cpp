@@ -8,6 +8,7 @@ int main()
 {
     AdressBook ksiazkaadresowa;
     ksiazkaadresowa.rejestracjaUzytkownika();
+    ksiazkaadresowa.rejestracjaUzytkownika();
     ksiazkaadresowa.wypiszWszystkichUzytkownikow();
 
     return 0;
