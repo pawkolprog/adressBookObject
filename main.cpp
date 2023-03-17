@@ -1,9 +1,15 @@
 #include <iostream>
 
+#include "adressBook.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    AdressBook ksiazkaadresowa;
+    ksiazkaadresowa.rejestracjaUzytkownika();
+    ksiazkaadresowa.rejestracjaUzytkownika();
+    ksiazkaadresowa.wypiszWszystkichUzytkownikow();
+
     return 0;
 }
