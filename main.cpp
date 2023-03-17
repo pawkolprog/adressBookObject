@@ -1,9 +1,12 @@
 #include <iostream>
 
+#include "adressBook.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    AdressBook ksiazkaadresowa;
+
     return 0;
 }
