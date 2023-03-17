@@ -7,6 +7,8 @@ using namespace std;
 int main()
 {
     AdressBook ksiazkaadresowa;
+    ksiazkaadresowa.rejestracjaUzytkownika();
+    ksiazkaadresowa.wypiszWszystkichUzytkownikow();
 
     return 0;
 }
