@@ -1,4 +1,5 @@
 bin/
 obj/
 plan/
-ksiazka_adresowa_pp.*
+adressBookObject.*
+ksiazka_adresowa_struct/
