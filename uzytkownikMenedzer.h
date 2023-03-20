@@ -20,13 +20,13 @@ class UzytkownikMenedzer {
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    void wczytajUzytkownikow();
+
 
 public:
-    UzytkownikMenedzer();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     Uzytkownik podajDaneNowegoUzytkownika();
+    void wczytajUzytkownikow();
 
 };
 

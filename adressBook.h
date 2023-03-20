@@ -11,6 +11,7 @@ class AdressBook {
     UzytkownikMenedzer uzytkownikMenedzer;
 
 public:
+    AdressBook();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
 
