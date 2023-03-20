@@ -53,5 +53,5 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
 }
 
 void UzytkownikMenedzer::wczytajUzytkownikow() {
-    plikZUzytkownikami.wczytajUzytkownikowZPliku(uzytkownicy);
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }

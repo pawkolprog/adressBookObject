@@ -77,9 +77,10 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     return uzytkownik;
 }
 
-void PlikZUzytkownikami::wczytajUzytkownikowZPliku(vector <Uzytkownik> &uzytkownicy)
+vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
 {
     Uzytkownik uzytkownik;
+    vector <Uzytkownik> uzytkownicy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
 
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
@@ -94,4 +95,5 @@ void PlikZUzytkownikami::wczytajUzytkownikowZPliku(vector <Uzytkownik> &uzytkown
 
     }
     plikTekstowy.close();
+    return uzytkownicy;
 }
