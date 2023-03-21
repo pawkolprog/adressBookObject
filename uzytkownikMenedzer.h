@@ -23,6 +23,7 @@ class UzytkownikMenedzer {
 
 
 public:
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami);
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     Uzytkownik podajDaneNowegoUzytkownika();
