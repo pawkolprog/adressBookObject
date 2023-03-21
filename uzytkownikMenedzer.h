@@ -21,11 +21,13 @@ class UzytkownikMenedzer {
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
 
-public:
 
+public:
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     Uzytkownik podajDaneNowegoUzytkownika();
+    void wczytajUzytkownikow();
+
 };
 
 #endif
