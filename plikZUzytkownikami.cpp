@@ -1,6 +1,6 @@
 #include "plikZUzytkownikami.h"
 
-PlikZUzytkownikami::PlikZUzytkownikami() : nazwaPlikuZUzytkownikami("Uzytkownicy.txt") {}
+PlikZUzytkownikami::PlikZUzytkownikami(string nazwaPliku) : nazwaPlikuZUzytkownikami(nazwaPliku) {}
 
 bool PlikZUzytkownikami::czyPlikJestPusty(fstream &plikTekstowy) {
     plikTekstowy.seekg(0, ios::end);

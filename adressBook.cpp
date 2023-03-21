@@ -1,6 +1,6 @@
 #include "adressBook.h"
 
-AdressBook::AdressBook() {
+AdressBook::AdressBook(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {
     uzytkownikMenedzer.wczytajUzytkownikow();
 }
 
