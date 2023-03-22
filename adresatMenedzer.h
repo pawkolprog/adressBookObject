@@ -10,11 +10,18 @@
 #include "plikZAdresatami.h"
 #include "metodyPomocnicze.h"
 
+class AdresatMenedzer {
+    vector <Adresat> adresaci;
+    int idOstatniegoAdresata;
 
+    void wyswietlDaneAdresata(Adresat adresat);
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 
+public:
+    AdresatMenedzer();
+    void wyswietlWszystkichAdresatow();
+    void dodajAdresata(int idZalogowanegoUzytkownika);
 
-
-
-
+};
 
 #endif

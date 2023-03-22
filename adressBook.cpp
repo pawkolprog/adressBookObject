@@ -12,7 +12,15 @@ void AdressBook::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-void AdressBook::zaloguj() {
+void AdressBook::zalogujUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
-    cout << endl << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+    cout << endl << "Udalo sie zalogowac, Twoje ID: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}
+
+void AdressBook::dodajAdresata(){
+    adresatMenedzer.dodajAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+}
+
+void AdressBook::wyswietlWszystkichAdresatow(){
+    adresatMenedzer.wyswietlWszystkichAdresatow();
 }

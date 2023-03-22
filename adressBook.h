@@ -4,17 +4,21 @@
 #include <iostream>
 
 #include "uzytkownikMenedzer.h"
+#include "adresatMenedzer.h"
 
 using namespace std;
 
 class AdressBook {
     UzytkownikMenedzer uzytkownikMenedzer;
+    AdresatMenedzer adresatMenedzer;
 
 public:
     AdressBook(string nazwaPlikuZUzytkownikami);
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void zaloguj();
+    void zalogujUzytkownika();
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 
 };
 
