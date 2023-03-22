@@ -13,7 +13,7 @@ class AdressBook {
     AdresatMenedzer adresatMenedzer;
 
 public:
-    AdressBook(string nazwaPlikuZUzytkownikami);
+    AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami);
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void zalogujUzytkownika();
