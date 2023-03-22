@@ -1,6 +1,7 @@
 #include "uzytkownikMenedzer.h"
 
 UzytkownikMenedzer::UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+    idZalogowanegoUzytkownika = 0;
 }
 
 int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
@@ -57,4 +58,43 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
 
 void UzytkownikMenedzer::wczytajUzytkownikow() {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+}
+
+void UzytkownikMenedzer::logowanieUzytkownika() {
+    string login = "", haslo = "";
+
+    cout << endl << "Podaj login: ";
+    login = MetodyPomocnicze::wczytajLinie();
+
+    vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+    while (itr != uzytkownicy.end())
+    {
+        if (itr -> pobierzLogin() == login)
+        {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+                haslo = MetodyPomocnicze::wczytajLinie();
+
+                if (itr -> pobierzHaslo() == haslo)
+                {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    idZalogowanegoUzytkownika = itr -> pobierzId();
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return;
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
+    return idZalogowanegoUzytkownika;
 }

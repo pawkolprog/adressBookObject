@@ -11,3 +11,8 @@ void AdressBook::rejestracjaUzytkownika() {
 void AdressBook::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
+
+void AdressBook::zaloguj() {
+    uzytkownikMenedzer.logowanieUzytkownika();
+    cout << endl << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}

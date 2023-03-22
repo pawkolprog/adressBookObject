@@ -14,6 +14,7 @@ public:
     AdressBook(string nazwaPlikuZUzytkownikami);
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
+    void zaloguj();
 
 };
 

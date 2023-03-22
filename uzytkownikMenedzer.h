@@ -28,6 +28,8 @@ public:
     void wypiszWszystkichUzytkownikow();
     Uzytkownik podajDaneNowegoUzytkownika();
     void wczytajUzytkownikow();
+    void logowanieUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 
 };
 
