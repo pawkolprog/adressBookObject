@@ -24,3 +24,11 @@ void AdressBook::dodajAdresata(){
 void AdressBook::wyswietlWszystkichAdresatow(){
     adresatMenedzer.wyswietlWszystkichAdresatow();
 }
+
+void AdressBook::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}
+
+void AdressBook::wylogujUzytkownika() {
+    uzytkownikMenedzer.wylogujUzytkownika();
+}
