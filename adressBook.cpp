@@ -14,7 +14,6 @@ void AdressBook::wypiszWszystkichUzytkownikow() {
 
 void AdressBook::zalogujUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
-    cout << endl << "Udalo sie zalogowac, Twoje ID: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
 
 void AdressBook::dodajAdresata(){
@@ -31,4 +30,8 @@ void AdressBook::zmianaHaslaZalogowanegoUzytkownika() {
 
 void AdressBook::wylogujUzytkownika() {
     uzytkownikMenedzer.wylogujUzytkownika();
+}
+
+void AdressBook::wczytajAdresatowZalogowanegoUzytkownika() {
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }

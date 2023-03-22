@@ -72,3 +72,7 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 
     return adresat;
 }
+
+void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) {
+    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
+}

@@ -22,6 +22,7 @@ public:
     AdresatMenedzer(string nazwaPlikuZAdresatami);
     void wyswietlWszystkichAdresatow();
     void dodajAdresata(int idZalogowanegoUzytkownika);
+    void wczytajAdresatowZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
 
 };
 
