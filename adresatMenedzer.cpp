@@ -1,8 +1,6 @@
 #include "adresatMenedzer.h"
 
-AdresatMenedzer::AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
-    idOstatniegoAdresata = 0;
-}
+AdresatMenedzer::AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {}
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow(){
     system("cls");
@@ -42,15 +40,13 @@ void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika){
 
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    ++idOstatniegoAdresata;
 }
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
 
-    adresat.ustawId(idOstatniegoAdresata+1);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
     adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
@@ -74,5 +70,5 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 }
 
 void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) {
-    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
+    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
 }

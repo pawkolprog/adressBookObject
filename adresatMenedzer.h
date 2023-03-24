@@ -12,7 +12,6 @@
 
 class AdresatMenedzer {
     vector <Adresat> adresaci;
-    int idOstatniegoAdresata;
     PlikZAdresatami plikZAdresatami;
 
     void wyswietlDaneAdresata(Adresat adresat);
