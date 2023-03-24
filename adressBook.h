@@ -13,7 +13,9 @@ class AdressBook {
     AdresatMenedzer adresatMenedzer;
 
 public:
-    AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami);
+    AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
+    uzytkownikMenedzer.wczytajUzytkownikow();
+    }
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void zalogujUzytkownika();
@@ -21,7 +23,6 @@ public:
     void wyswietlWszystkichAdresatow();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
-    void wczytajAdresatowZalogowanegoUzytkownika();
 
 };
 

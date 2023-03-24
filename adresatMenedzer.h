@@ -12,17 +12,19 @@
 
 class AdresatMenedzer {
     vector <Adresat> adresaci;
-    int idOstatniegoAdresata;
+    int idZalogowanegoUzytkownika;
     PlikZAdresatami plikZAdresatami;
 
     void wyswietlDaneAdresata(Adresat adresat);
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami);
+    AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
+    idZalogowanegoUzytkownika = 0;
+}
     void wyswietlWszystkichAdresatow();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
-    void wczytajAdresatowZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void dodajAdresata();
+    void ustawIdZalogowanegoUzytkownika(int id);
 
 };
 

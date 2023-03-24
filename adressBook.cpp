@@ -1,9 +1,5 @@
 #include "adressBook.h"
 
-AdressBook::AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
-    uzytkownikMenedzer.wczytajUzytkownikow();
-}
-
 void AdressBook::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
@@ -13,11 +9,14 @@ void AdressBook::wypiszWszystkichUzytkownikow() {
 }
 
 void AdressBook::zalogujUzytkownika() {
-    uzytkownikMenedzer.logowanieUzytkownika();
+    if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() == 0){
+        uzytkownikMenedzer.logowanieUzytkownika();
+        adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
 void AdressBook::dodajAdresata(){
-    adresatMenedzer.dodajAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    adresatMenedzer.dodajAdresata();
 }
 
 void AdressBook::wyswietlWszystkichAdresatow(){
@@ -29,9 +28,8 @@ void AdressBook::zmianaHaslaZalogowanegoUzytkownika() {
 }
 
 void AdressBook::wylogujUzytkownika() {
-    uzytkownikMenedzer.wylogujUzytkownika();
-}
-
-void AdressBook::wczytajAdresatowZalogowanegoUzytkownika() {
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() != 0){
+        uzytkownikMenedzer.wylogujUzytkownika();
+        adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
