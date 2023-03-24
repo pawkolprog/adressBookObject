@@ -1,9 +1,5 @@
 #include "plikZAdresatami.h"
 
-PlikZAdresatami::PlikZAdresatami(string nazwaPliku) : nazwaPlikuZAdresatami(nazwaPliku) {
-    idOstatniegoAdresata = 0;
-}
-
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
