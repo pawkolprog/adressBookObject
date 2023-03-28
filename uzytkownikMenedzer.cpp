@@ -56,7 +56,7 @@ void UzytkownikMenedzer::wczytajUzytkownikow() {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
-void UzytkownikMenedzer::logowanieUzytkownika() {
+bool UzytkownikMenedzer::logowanieUzytkownika() {
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
@@ -77,18 +77,18 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
-                    return;
+                    return true;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return;
+            return false;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return;
+    return false;
 }
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {

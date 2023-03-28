@@ -10,11 +10,16 @@ using namespace std;
 
 class AdressBook {
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
+    AdresatMenedzer *adresatMenedzer;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
-    uzytkownikMenedzer.wczytajUzytkownikow();
+    AdressBook(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+    adresatMenedzer = NULL;
+    }
+    ~AdressBook(){
+        delete adresatMenedzer;
+        adresatMenedzer = NULL;
     }
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
