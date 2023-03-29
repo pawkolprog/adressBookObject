@@ -28,6 +28,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 
 };
 

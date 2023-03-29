@@ -41,3 +41,7 @@ void AdressBook::wylogujUzytkownika() {
         adresatMenedzer = NULL;
     }
 }
+
+int AdressBook::pobierzIdZalogowanegoUzytkownika(){
+    return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}
