@@ -10,17 +10,24 @@ void AdressBook::wypiszWszystkichUzytkownikow() {
 
 void AdressBook::zalogujUzytkownika() {
     if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() == 0){
-        uzytkownikMenedzer.logowanieUzytkownika();
-        adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+        if (uzytkownikMenedzer.logowanieUzytkownika()){
+            adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+        }
     }
 }
 
 void AdressBook::dodajAdresata(){
-    adresatMenedzer.dodajAdresata();
+    if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() != 0){
+        adresatMenedzer -> dodajAdresata();
+    } else {
+        cout << "Przed dodaniem adresata nalezy sie zalogowac." << endl;
+        system("pause");
+        return;
+    }
 }
 
 void AdressBook::wyswietlWszystkichAdresatow(){
-    adresatMenedzer.wyswietlWszystkichAdresatow();
+    adresatMenedzer -> wyswietlWszystkichAdresatow();
 }
 
 void AdressBook::zmianaHaslaZalogowanegoUzytkownika() {
@@ -30,6 +37,11 @@ void AdressBook::zmianaHaslaZalogowanegoUzytkownika() {
 void AdressBook::wylogujUzytkownika() {
     if (uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() != 0){
         uzytkownikMenedzer.wylogujUzytkownika();
-        adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+        delete adresatMenedzer;
+        adresatMenedzer = NULL;
     }
+}
+
+int AdressBook::pobierzIdZalogowanegoUzytkownika(){
+    return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
