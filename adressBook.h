@@ -30,6 +30,7 @@ public:
     void wylogujUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
     void usunAdresata();
+    void edytujAdresata();
 
 };
 

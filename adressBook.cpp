@@ -49,3 +49,7 @@ int AdressBook::pobierzIdZalogowanegoUzytkownika(){
 void AdressBook::usunAdresata(){
     adresatMenedzer -> usunAdresata();
 }
+
+void AdressBook::edytujAdresata(){
+    adresatMenedzer -> edytujAdresata();
+}
