@@ -29,6 +29,7 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
     int pobierzIdZalogowanegoUzytkownika();
+    void usunAdresata();
 
 };
 

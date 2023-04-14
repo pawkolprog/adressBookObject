@@ -92,7 +92,7 @@ int main()
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
-                cout << "brak funkcji" << endl;
+                ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
                 cout << "brak funkcji" << endl;

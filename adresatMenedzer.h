@@ -24,6 +24,7 @@ public:
     }
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
+    void usunAdresata();
 };
 
 #endif
