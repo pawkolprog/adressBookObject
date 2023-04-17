@@ -53,3 +53,11 @@ void AdressBook::usunAdresata(){
 void AdressBook::edytujAdresata(){
     adresatMenedzer -> edytujAdresata();
 }
+
+void AdressBook::wyszukajAdresatowPoImieniu(){
+    adresatMenedzer -> wyszukajAdresatowPoImieniu();
+}
+
+void AdressBook::wyszukajAdresatowPoNazwisku(){
+    adresatMenedzer -> wyszukajAdresatowPoNazwisku();
+}

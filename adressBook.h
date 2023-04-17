@@ -31,6 +31,8 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void usunAdresata();
     void edytujAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 
 };
 
