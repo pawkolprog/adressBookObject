@@ -3,7 +3,7 @@
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good())
     {
@@ -42,22 +42,13 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
-{
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 void PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
 
     if (plikTekstowy.good())
     {
@@ -164,7 +155,7 @@ void PlikZAdresatami::usunAdresata(int idUsuwanegoAdresata){
     int numerWczytanejLinii = 0;
     int idOstatnioPrzepisanegoAdresata = 0;
 
-    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
     tymczasowyPlikTekstowy.open("tymczasowy.txt", ios::out | ios::app);
 
     if (odczytywanyPlikTekstowy.good())
@@ -188,8 +179,8 @@ void PlikZAdresatami::usunAdresata(int idUsuwanegoAdresata){
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
-        remove(nazwaPlikuZAdresatami.c_str());
-        rename("tymczasowy.txt", nazwaPlikuZAdresatami.c_str());
+        remove(NAZWA_PLIKU.c_str());
+        rename("tymczasowy.txt", NAZWA_PLIKU.c_str());
 
         idOstatniegoAdresata = idOstatnioPrzepisanegoAdresata;
     }
@@ -201,7 +192,7 @@ void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEd
     string wczytanaLinia = "";
     int numerWczytanejLinii = 0;
 
-    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
     tymczasowyPlikTekstowy.open("tymczasowy.txt", ios::out | ios::app);
 
     if (odczytywanyPlikTekstowy.good())
@@ -227,7 +218,7 @@ void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEd
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
-        remove(nazwaPlikuZAdresatami.c_str());
-        rename("tymczasowy.txt", nazwaPlikuZAdresatami.c_str());
+        remove(NAZWA_PLIKU.c_str());
+        rename("tymczasowy.txt", NAZWA_PLIKU.c_str());
     }
 }
