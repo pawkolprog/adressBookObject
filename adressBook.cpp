@@ -45,3 +45,19 @@ void AdressBook::wylogujUzytkownika() {
 int AdressBook::pobierzIdZalogowanegoUzytkownika(){
     return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
+
+void AdressBook::usunAdresata(){
+    adresatMenedzer -> usunAdresata();
+}
+
+void AdressBook::edytujAdresata(){
+    adresatMenedzer -> edytujAdresata();
+}
+
+void AdressBook::wyszukajAdresatowPoImieniu(){
+    adresatMenedzer -> wyszukajAdresatowPoImieniu();
+}
+
+void AdressBook::wyszukajAdresatowPoNazwisku(){
+    adresatMenedzer -> wyszukajAdresatowPoNazwisku();
+}

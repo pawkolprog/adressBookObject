@@ -50,3 +50,37 @@ char MetodyPomocnicze::wczytajZnak()
     }
     return znak;
 }
+
+int MetodyPomocnicze::wczytajLiczbeCalkowita()
+{
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true)
+    {
+        getline(cin, wejscie);
+
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return liczba;
+}
+
+string MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
+{
+    string liniaZDanymiAdresata = "";
+
+    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzId()) + '|';
+    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
+    liniaZDanymiAdresata += adresat.pobierzImie() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
+    liniaZDanymiAdresata += adresat.pobierzEmail() + '|';
+    liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
+
+    return liniaZDanymiAdresata;
+}
+
+

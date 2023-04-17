@@ -3,7 +3,7 @@
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat){
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good())
     {
@@ -42,22 +42,13 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
-{
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 void PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
 
     if (plikTekstowy.good())
     {
@@ -155,4 +146,79 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku)
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata() {
     return idOstatniegoAdresata;
+}
+
+void PlikZAdresatami::usunAdresata(int idUsuwanegoAdresata){
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string wczytanaLinia = "";
+    int numerWczytanejLinii = 0;
+    int idOstatnioPrzepisanegoAdresata = 0;
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open("tymczasowy.txt", ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good())
+    {
+        while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
+        {
+            numerWczytanejLinii++;
+            // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
+            // aby na koncu pliku nie bylo pustej linii
+            if (idUsuwanegoAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia))
+                numerWczytanejLinii--;
+            else if (numerWczytanejLinii == 1) {
+                tymczasowyPlikTekstowy << wczytanaLinia;
+                idOstatnioPrzepisanegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
+            }
+            else if (numerWczytanejLinii > 1) {
+                tymczasowyPlikTekstowy << endl << wczytanaLinia;
+                idOstatnioPrzepisanegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
+            }
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        remove(NAZWA_PLIKU.c_str());
+        rename("tymczasowy.txt", NAZWA_PLIKU.c_str());
+
+        idOstatniegoAdresata = idOstatnioPrzepisanegoAdresata;
+    }
+}
+
+void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata){
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string wczytanaLinia = "";
+    int numerWczytanejLinii = 0;
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open("tymczasowy.txt", ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good())
+    {
+        while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
+        {
+            numerWczytanejLinii++;
+            if (idEdytowanegoAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia))
+            {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+            }
+            else
+            {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << wczytanaLinia;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << wczytanaLinia;
+            }
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        remove(NAZWA_PLIKU.c_str());
+        rename("tymczasowy.txt", NAZWA_PLIKU.c_str());
+    }
 }

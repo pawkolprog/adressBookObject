@@ -83,19 +83,19 @@ int main()
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                cout << "brak funkcji" << endl;
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                cout << "brak funkcji" << endl;
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
-                cout << "brak funkcji" << endl;
+                ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
-                cout << "brak funkcji" << endl;
+                ksiazkaAdresowa.edytujAdresata();
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
