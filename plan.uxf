@@ -340,11 +340,11 @@ bg=BLACK</panel_attributes>
     <coordinates>
       <x>553</x>
       <y>119</y>
-      <w>497</w>
-      <h>56</h>
+      <w>448</w>
+      <h>301</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;50.0;190.0;10.0;520.0;10.0;690.0;60.0</additional_attributes>
+    <additional_attributes>10.0;50.0;190.0;10.0;520.0;10.0;620.0;410.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
